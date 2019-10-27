@@ -1,9 +1,13 @@
 {
-  "name": "vinoth-code-test",
+  "name": "vinoth_codetest",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "bootstrap": "^4.3.1",
+    "jquery": "^3.4.1",
+    "rc-slider": "^8.7.1",
     "react": "^16.11.0",
+    "react-bootstrap": "^1.0.0-beta.14",
     "react-dom": "^16.11.0",
     "react-scripts": "3.2.0"
   },
