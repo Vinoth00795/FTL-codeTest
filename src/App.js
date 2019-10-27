@@ -43,7 +43,7 @@ class App extends React.Component {
   }
 
   state_updater(amount, duration) {
-    this.setState({ amount_slider: Number(amount), duration_slider: Number(duration), isFetch: 'cache' });
+    this.setState({ amount_slider: Number(amount), duration_slider: Number(duration), isFetch: 'cache', isOutputReady:'none' });
   }
 
   async componentDidUpdate() {
@@ -81,7 +81,7 @@ class App extends React.Component {
               isFetch: false,
               isOutputReady: 'flex',
               recent_data: recent_data_tmp,
-              isRecentDataAvailable: true
+              isRecentDataAvailable: true,
             }, () => {
               if (isFetch !== 'cache') {
                 localStorage.setItem('interestRates_cache', JSON.stringify(recent_data_tmp));
@@ -97,13 +97,13 @@ class App extends React.Component {
 
   input_setter(value, field) {
     if (field === 'amount') {
-      this.setState({ amount_slider: value.target.value, isFetch: true });
+      this.setState({ amount_slider: value.target.value, isFetch: true, isOutputReady:'none' });
     } else if (field === 'duration') {
-      this.setState({ duration_slider: value.target.value, isFetch: true });
+      this.setState({ duration_slider: value.target.value, isFetch: true, isOutputReady:'none' });
     } else if (field === 'amount_slider') {
-      this.setState({ amount_slider: value, isFetch: true });
+      this.setState({ amount_slider: value, isFetch: true, isOutputReady:'none' });
     } else if (field === 'duration_slider') {
-      this.setState({ duration_slider: value, isFetch: true });
+      this.setState({ duration_slider: value, isFetch: true, isOutputReady:'none' });
     }
   }
 
