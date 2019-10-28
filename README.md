@@ -1,10 +1,4 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `yarn start`
+### `npm start`
 
 Runs the app in the development mode.<br />
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
@@ -12,57 +6,39 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.<br />
 You will also see any lint errors in the console.
 
-### `yarn test`
+### `Project overview`
+- The goal for this project is to create an Interest Rates calculator feature using the Heroku API which provides the monthly EMI rate and Interest rate. 
+- Users should be able to enter the amount and duration of the loan in the Input field.
+- Users should be able to select the amount and duration using the slider provided below the Input field.
+- The amount and duration provide must be between $500 to $5000 for amount and 6 to 24 for duration.
+- Upon getting both the value in the expected format a call to Heroku API should happen and it must give the interest rate and Monthly EMI rate.
+- After successful API call, display the Interest rate, cache the search data for later use which will be available in the sidebar.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### `Structure overview`
+Frontend Stack: React JS
+- Since it is a single page and no scroll application all the code related to the project is in the App.js file and it is been imported in the index.js file (Which is the entry file)
+- All styling related to the project is in the App.css file
 
-### `yarn build`
+### `State management`
+- We have two key data to be stored - Amount and Duration. Rest other state data will change depending on this data, so that will be handled using component state.
+- As the requirement is to store the key data in local storage and the project is a single page application, the application level state management(like Redux...) is not need.
+- Whenever a new valid search happens, the data(Amount and duration) is stored in local storage.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### `Libraries and packages`
+- jQuery - Javscript library.
+- Bootstrap - CSS Framework
+- rc-slider - Node package for slider function.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+### `Functonality flow`
+FLow 1 : Valid Amount and valid Duration(Entered using slider, Input field) -> API call -> Display output tab and result -> Store data in local storage.
+Flow 2 : Amount and Duration picked from recent search list -> API call -> Display output tab and result.
+Flow 3 : Invalid Amount and Duation -> Invalid error message -> Hide output tab.
+Flow 4 : Upon correcting the valid input data -> Display output tab and result -> Store data in local storage.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### `Deployment`
+1. Heroku login
+2. Setup Heroku remote 
+3. git add .
+4. git commit -m "commit message"
+5. git push heroku master
 
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
